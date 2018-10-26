@@ -1,0 +1,42 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+    layout:decorator="fragmentos/layout">
+    <head>
+        <meta charset="utf-8">
+        <title>Lista de Marcas</title>
+    </head>
+    <body>
+        <div layout:fragment="content">
+            <fieldset>
+                <legend>Lista de Marcas</legend>
+                <a class="btn btn-primary btn-block" th:href="@{/marca/cadastrar}">
+                    <i class="fas fa-plus-circle"></i> Novo
+                </a>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>nome</th>
+                            <th>ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each="marca : ${marcaLista}">
+                            <td style="width: 5%;"><span th:text="${marca.id}"></span></td>
+                            <td><span th:text="${marca.nome}"></span></td>
+                            <td style="width: 20%;">
+                                <div class="col-md-6">
+                                    <a class="btn btn-primary btn-block" th:href="@{/marca/editar/{id}(id=${marca.id})}"><i class="far fa-edit"></i></a>
+                                </div>
+                                <div class="col-md-6">
+                                    <a class="btn btn-danger btn-block" th:href="@{/marca/remover/{id}(id=${marca.id})}"><i class="far fa-trash-alt"></i></a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </fieldset> 
+        </div>
+    </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Produtos</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.css}">
+</head>
+<body>
+    <div class="container">
+        <fieldset>
+            <legend>Formulário de Produtos</legend>
+            <form th:action="@{/produto}" th:object="${produto}" method="post">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input class="form-control" type="text" id="nome" th:field="*{nome}" th:value="*{nome}">
+                </div>
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <select class="form-control" id="marca" th:field="*{marca}" th:value="*{marca}">
+                        <option th:each="marca : ${marcas}" 
+                            th:value="${marca.id}" 
+                            th:text="${marca.nome}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="departamento">Departamento</label>
+
+                    <select class="form-control" id="departamento" th:field="*{departamento}" th:value="*{departamento}">
+                        <option th:each="departamento : ${departamentos}" 
+                            th:value="${departamento.id}" 
+                            th:text="${departamento.nome}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="valor">Valor</label>
+                    <input class="form-control" 
+                        type="text" 
+                        id="valor" 
+                        th:field="*{valor}" 
+                        th:value="*{valor}">
+                </div>
+                <button class="btn btn-primary" type="submit">
+                    Salvar
+                </button>
+            </form>
+        </fieldset>
+    </div>
+    <script th:src="@{/js/jquery.js}"></script>
+    <script th:src="@{/js/bootstrap.js}"></script>
+    <script th:src="@{/js/fontawesome.js}"></script>
+</body>
+</html>
