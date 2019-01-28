@@ -12,8 +12,9 @@ import javax.persistence.Table;
 public class Marca extends AuditedEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_MARCA")
-	@SequenceGenerator(name="SEQ_MARCA", sequenceName="seq_marca_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_MARCA")
+//	@SequenceGenerator(name="SEQ_MARCA", sequenceName="seq_marca_id", allocationSize=1)
 	private Integer id;
 	private String nome;
 	

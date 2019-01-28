@@ -16,9 +16,11 @@ import javax.persistence.TemporalType;
 @Entity
 public class Cliente extends AuditedEntity {
 
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CLIENTE")
-	@SequenceGenerator(name="SEQ_CLIENTE", sequenceName="seq_cliente_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_CLIENTE")
+//	@SequenceGenerator(name="SEQ_CLIENTE", sequenceName="seq_cliente_id", allocationSize=1)
 	private Integer id;
 	private String nome;
 	@Column(unique=true)

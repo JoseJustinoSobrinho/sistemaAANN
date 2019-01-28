@@ -16,11 +16,11 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 public class Usuario extends AuditedEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_USUARIO")
-	@SequenceGenerator(name="SEQ_USUARIO", sequenceName="seq_usuario_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_USUARIO")
+//	@SequenceGenerator(name="SEQ_USUARIO", sequenceName="seq_usuario_id", allocationSize=1)
 	private Integer id;
 	@NotEmpty
-	@Column(unique = true)
 	private String login;
 	@NotEmpty
 	private String senha;

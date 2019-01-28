@@ -1,0 +1,119 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Novo Usuário</title>
+        <link rel="stylesheet" th:href="@{/css/bootstrap.css}" />
+        <link rel="stylesheet" th:href="@{/css/bootstrap-theme.css}" />
+        <link rel="stylesheet" th:href="@{/css/fontawesome.css}" />
+    </head>
+    <body>
+        <div class="container" id="form-usuarios">
+            <fieldset>
+                <legend>
+                    Dados Necessários
+                </legend>
+                <form th:action="@{/usuario}" th:object="${usuario}" method="post">
+
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" 
+                            name="nome" 
+                            id="nome"  
+                            class="form-control"  
+                            th:value="*{nome}" 
+                            th:field="*{nome}" 
+                            placeholder="Nome do novo usuário..." 
+                            autofocus />
+                    </div>	
+                
+                 <!--    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" 
+                            name="email" 
+                            id="email" 
+                            class="form-control" 
+                            th:value="*{email}" 
+                            th:field="*{email}" 
+                            placeholder="E-mail do novo usuário..." 
+                            autofocus />
+                    </div>
+ -->
+                    <div class="form-group">
+                        <label for="login">Login</label>
+                        <input type="text" 
+                            name="login" 
+                            id="login" 
+                            class="form-control" 
+                            th:value="*{login}" 
+                            th:field="*{login}" 
+                            placeholder="login do novo usuário..." 
+                            autofocus />
+                    </div>
+             
+                    <div class="form-group">  
+                        <label for="senha">Senha</label>
+                        <input type="password" 
+                            name="senha" 
+                            id="senha"  
+                            class="form-control" 
+                            th:value="*{senha}" 
+                            th:field="*{senha}" 
+                            placeholder="senha do novo usuário..." 
+                            autofocus />
+                        </div>
+                        
+         <!--                    <div class="form-group">  
+                        <label for="number">cod numer</label>
+                        <input type="number" 
+                            name="number" 
+                            id="number"  
+                            class="form-control" 
+                            th:value="*{1}"  
+                            />
+                        </div>
+ 
+             <div class="form-group">
+                    <label for="situacao">situacao</label>
+                    <select class="form-control" id="situacao" th:field="*{situacao}" th:value="*{situacao}">
+                        <option th:each="situacao : ${situacaos}" 
+                            th:value="${situacao.id}" 
+                            th:text="${situacao.nome}">
+                        </option>
+                    </select>
+                </div>
+                
+                           
+                     <div class="form-group">
+                            <label for="permissao">Permissão</label>
+        
+                            <select class="form-control" id="permissao" th:field="*{permissao}" th:value="*{permissao}">
+                                <option th:each="permissao : ${permissoes}" 
+                                    th:value="${permissao.id}" 
+                                    th:text="${permissao.nome}">
+                                </option>
+                            </select>
+                        </div>
+                    -->
+                    
+                    <div class="form-group">
+                        <div class="col-md-6">
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <i class="far fa-save"></i> Salvar
+                            </button>
+                        </div>
+                        <div class="col-md-6">
+                            <a class="btn btn-danger btn-block" th:href="@{/usuario}">
+                                <i class="fas fa-undo-alt"></i> Voltar
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </fieldset>
+        </div>
+        <script th:src="@{/js/jquery.js}"></script>
+        <script th:src="@{/js/bootstrap.js}"></script>
+        <script th:src="@{/js/fontawesome.js}"></script>
+    </body>
+</html>

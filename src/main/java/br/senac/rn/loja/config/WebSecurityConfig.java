@@ -22,13 +22,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 		.authorizeRequests()
-		.antMatchers("/login", "/css/**", "/js/**", "/fonts/**").permitAll()
-		.anyRequest().authenticated()
+		.antMatchers("/login", "/fotos/**", "/css/**", "/js/**", "/fonts/**").permitAll()
+	//	.antMatchers("/login", "/css/**", "/js/**", "/fonts/**", "/marca/**").permitAll()
+		.antMatchers("/produto/**").hasRole("FUNCIONARIO")
+		.antMatchers("/departamento/**").hasRole("USER")
+		.antMatchers("/usuario/**").hasRole("ADMIN")
+	//	.antMatchers("/usuario/**", "/departamento/**").hasRole("ADMIN")
+	//	.anyRequest().authenticated()   // tirando fica tudo liberado OBESERVE que marca ta liberado
 		.and()
 		.formLogin()
-		.loginPage("/login")
-		.successForwardUrl("/marca")
-		.defaultSuccessUrl("/marca", true).permitAll();
+			.loginPage("/login").successForwardUrl("/marca")   /// quando rodar o login vai pra essa pagina
+			.defaultSuccessUrl("/marca", true).permitAll();
+	//	super.configure(http);
 	}
 	
 	@Override

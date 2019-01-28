@@ -12,8 +12,9 @@ import javax.persistence.Table;
 public class Departamento extends AuditedEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_DEPARTAMENTO")
-	@SequenceGenerator(name="SEQ_DEPARTAMENTO", sequenceName="seq_departamento_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_DEPARTAMENTO")
+//	@SequenceGenerator(name="SEQ_DEPARTAMENTO", sequenceName="seq_departamento_id", allocationSize=1)
 	private Integer id;
 	private String nome;
 	private String sigla;

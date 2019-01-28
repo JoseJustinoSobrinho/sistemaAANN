@@ -22,8 +22,9 @@ import javax.persistence.TemporalType;
 public class Venda extends AuditedEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_VENDA")
-	@SequenceGenerator(name="SEQ_VENDA", sequenceName="seq_venda_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_VENDA")
+//	@SequenceGenerator(name="SEQ_VENDA", sequenceName="seq_venda_id", allocationSize=1)
 	private Integer id;
 	@ManyToOne
 	@JoinColumn(name="cliente_id")

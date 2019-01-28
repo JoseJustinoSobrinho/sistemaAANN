@@ -1,5 +1,6 @@
 package br.senac.rn.loja.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import br.senac.rn.loja.model.Permissao;
 import br.senac.rn.loja.model.Usuario;
 import br.senac.rn.loja.repository.UsuarioRepository;
 
@@ -22,7 +24,7 @@ import br.senac.rn.loja.repository.UsuarioRepository;
 @Transactional
 public class UsuarioService extends GenericService<Usuario> implements UserDetailsService {
 
-	@Autowired
+	@Autowired  
 	private UsuarioRepository usuarioRepository;
 	
 	@Override
@@ -42,5 +44,22 @@ public class UsuarioService extends GenericService<Usuario> implements UserDetai
 		}
 		return new User(usuario.getLogin(), usuario.getSenha(), autorizacoes);
 	}
+	
+	
+	
+	
+//	@Override
+//	public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
+//		Usuario user = usuarioRepository.findByLogin(login);
+//		if (user == null) {
+//			throw new UsernameNotFoundException("Usuario não encontrado");
+//		}
+//		List<String> permissoes = new ArrayList<>();
+//		for (Permissao permissao: user.getPermissoes()) {
+//			permissoes.add(permissao.getNome());
+//		}
+//		List<GrantedAuthority> autorizacoes = AuthorityUtils.createAuthorityList(permissoes.toArray(new String[0]));
+//		return new User(user.getLogin(), user.getSenha(), autorizacoes);
+//	}
 
 }

@@ -14,8 +14,9 @@ import javax.persistence.Table;
 public class Produto extends AuditedEntity {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PRODUTO")
-	@SequenceGenerator(name="SEQ_PRODUTO", sequenceName="seq_produto_id", allocationSize=1)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+//	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_PRODUTO")
+//	@SequenceGenerator(name="SEQ_PRODUTO", sequenceName="seq_produto_id", allocationSize=1)
 	private Integer id;
 	private String nome;
 	@ManyToOne
